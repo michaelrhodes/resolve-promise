@@ -1,0 +1,33 @@
+{
+  "name": "broken",
+  "version": "1.0.0",
+  "description": "promise -> callback",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:michaelrhodes/broken.git"
+  },
+  "keywords": [
+    "broken",
+    "promises",
+    "promise",
+    "callback"
+  ],
+  "author": "Michael Rhodes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/michaelrhodes/broken/issues"
+  },
+  "homepage": "https://github.com/michaelrhodes/broken",
+  "devDependencies": {
+    "bluebird": "^2.3.11",
+    "deferred": "^0.7.1",
+    "promise": "^6.0.1",
+    "q": "^1.1.1",
+    "tape": "^3.0.3",
+    "when": "^3.6.3"
+  }
+}
