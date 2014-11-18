@@ -1,5 +1,5 @@
 {
-  "name": "broken",
+  "name": "broken-promise",
   "version": "1.0.0",
   "description": "promise -> callback",
   "main": "index.js",
