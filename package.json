@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:michaelrhodes/broken.git"
+    "url": "git@github.com:michaelrhodes/broken-promise.git"
   },
   "keywords": [
     "broken",
@@ -19,9 +19,9 @@
   "author": "Michael Rhodes",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/michaelrhodes/broken/issues"
+    "url": "https://github.com/michaelrhodes/broken-promise/issues"
   },
-  "homepage": "https://github.com/michaelrhodes/broken",
+  "homepage": "https://github.com/michaelrhodes/broken-promise",
   "devDependencies": {
     "bluebird": "^2.3.11",
     "deferred": "^0.7.1",
