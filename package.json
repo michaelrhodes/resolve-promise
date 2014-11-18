@@ -1,7 +1,7 @@
 {
   "name": "broken-promise",
   "version": "1.0.0",
-  "description": "promise -> callback",
+  "description": "promise → callback",
   "main": "index.js",
   "scripts": {
     "test": "tape test.js"
