@@ -10,7 +10,7 @@ $ npm install broken-promise
 
 ## usage
 ```js
-var Promise = require('your-fav-promises-implemenation')
+var Promise = require('your-fav-promises-implementation')
 var broken = require('broken-promise')
 
 var promise = new Promise(function(resolve, reject) {
