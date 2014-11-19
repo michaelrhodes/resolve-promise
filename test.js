@@ -4,8 +4,8 @@ var broken = require('./')
 var promise = require('promise')
 var bluebird = require('bluebird')
 var deferred = require('deferred')
-var q = require('q')
 var when = require('when')
+var q = require('q')
 
 test('npm.im/promise', function(assert) {
   standard(assert, promise) 
@@ -15,24 +15,16 @@ test('npm.im/bluebird', function(assert) {
   standard(assert, bluebird) 
 })
 
+test('npm.im/when', function(assert) {
+  standard(assert, when.Promise) 
+})
+
 test('npm.im/deferred', function(assert) {
   nonstandard(assert, deferred)
 })
 
 test('npm.im/q', function(assert) {
   nonstandard(assert, q.defer)
-})
-
-test('npm.im/when', function(assert) {
-  var resolved = when.promise(function(resolve, reject) {
-    resolve('done')
-  })
-
-  var rejected = when.promise(function(resolve, reject) {
-    reject()
-  })
-
-  go(assert, resolved, rejected)
 })
 
 function nonstandard (assert, defer) {
