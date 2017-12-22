@@ -6,10 +6,10 @@ function resolve (val, cb) {
   var ctx = this
 
   return typeof val.then == 'function' ?
-    promise(val) :
-    wrapped
+    promised(val) :
+    deferred
 
-  function wrapped () {
+  function deferred () {
     var args = arguments
     var last = args.length - 1
 
@@ -17,10 +17,10 @@ function resolve (val, cb) {
       (xargs = slice.call(args, 0, -1), cb = args[last]) :
       (xargs = args)
 
-    promise(val.apply(ctx, xargs))
+    promised(val.apply(ctx, xargs))
   }
 
-  function promise (val) {
+  function promised (val) {
     if (typeof cb == 'function') val.then(
       function (v) { cb(null, v) },
       function (v) { cb(v || new Error) }
