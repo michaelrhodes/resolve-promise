@@ -12,6 +12,7 @@ function resolve (val, cb) {
   function deferred () {
     var args = arguments
     var last = args.length - 1
+    var xargs
 
     typeof args[last] == 'function' ?
       (xargs = slice.call(args, 0, -1), cb = args[last]) :
