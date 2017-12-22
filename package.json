@@ -1,34 +1,20 @@
 {
-  "name": "broken-promise",
+  "name": "resolve-promise",
+  "author": "Michael Rhodes",
+  "description": "resolve promises with plain old callbacks",
   "version": "1.0.1",
-  "description": "Handle promises with plain old callbacks.",
   "main": "index.js",
+  "license": "MIT",
   "scripts": {
     "test": "tape test.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:michaelrhodes/broken-promise.git"
-  },
-  "keywords": [
-    "broken",
-    "promises",
-    "promise",
-    "callback"
-  ],
-  "author": "Michael Rhodes",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/michaelrhodes/broken-promise/issues"
-  },
-  "homepage": "https://github.com/michaelrhodes/broken-promise",
   "devDependencies": {
-    "bluebird": "^2.3.11",
+    "bluebird": "~3.5.1",
     "deferred": "^0.7.1",
     "http-get-shim": "^0.1.1",
-    "promise": "^6.0.1",
+    "promise": "~8.0.1",
     "q": "^1.1.1",
-    "tape": "^3.0.3",
+    "tape": "~4.8.0",
     "when": "^3.6.3"
   }
 }

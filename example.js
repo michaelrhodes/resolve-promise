@@ -1,15 +1,24 @@
-var Promise = require('promise')
-var broken = require('./')
+var resolve = require('./index')
 
-var promise = new Promise(function(resolve, reject) {
-  // Do some async-y stuff
-  setTimeout(function() {
-    Math.round(Math.random()) ?
-      resolve('OK') :
-      reject('NOT OK')
-  }, 100)
+// Resolve a single promise
+resolve(ask('Some question'), function (err, val) {
+  err ? console.error(err) : console.log(val)
 })
 
-broken(promise, function(error, value) {
-  error ? console.error(error) : console.log(value)
+// Or wrap a promise generator and resolve later
+var deferred = resolve(ask)
+
+deferred('Some question', function (err, val) {
+  err ? console.error(err) : console.log(val)
 })
+
+function ask (q) {
+  return new Promise(function (resolve, reject) {
+    // Do some async stuff
+    setTimeout(function () {
+      Math.round(Math.random()) ?
+        resolve('Q: ' + q + '\nA: Blah blah blah') :
+         reject('Q: ' + q + '\nA: Psych!')
+    })
+  })
+}

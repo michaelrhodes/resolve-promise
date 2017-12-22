@@ -1,5 +1,5 @@
-var test = require('tape')
-var broken = require('./')
+var tape = require('tape')
+var resolve = require('./')
 
 var promise = require('promise')
 var bluebird = require('bluebird')
@@ -7,56 +7,56 @@ var deferred = require('deferred')
 var when = require('when')
 var q = require('q')
 
-test('npm.im/promise', function(assert) {
-  standard(assert, promise) 
+tape('npm.im/promise', function (t) {
+  standard(t, promise)
 })
 
-test('npm.im/bluebird', function(assert) {
-  standard(assert, bluebird) 
+tape('npm.im/bluebird', function (t) {
+  standard(t, bluebird)
 })
 
-test('npm.im/when', function(assert) {
-  standard(assert, when.Promise) 
+tape('npm.im/when', function (t) {
+  standard(t, when.Promise)
 })
 
-test('npm.im/deferred', function(assert) {
-  nonstandard(assert, deferred)
+tape('npm.im/deferred', function (t) {
+  nonstandard(t, deferred)
 })
 
-test('npm.im/q', function(assert) {
-  nonstandard(assert, q.defer)
+tape('npm.im/q', function (t) {
+  nonstandard(t, q.defer)
 })
 
-function nonstandard (assert, defer) {
+function nonstandard (t, defer) {
   var resolved = defer()
   var rejected = defer()
 
   resolved.resolve('done')
   rejected.reject()
 
-  go(assert, resolved.promise, rejected.promise)
+  go(t, resolved.promise, rejected.promise)
 }
 
-function standard (assert, Promise) {
-  var resolved = new Promise(function(resolve, reject) {
+function standard (t, Promise) {
+  var resolved = new Promise(function (resolve, reject) {
     resolve('done')
   })
 
-  var rejected = new Promise(function(resolve, reject) {
+  var rejected = new Promise(function (resolve, reject) {
     reject()
   })
 
-  go(assert, resolved, rejected)
+  go(t, resolved, rejected)
 }
 
-function go(assert, resolved, rejected) {
-  assert.plan(2)
+function go (t, resolved, rejected) {
+  t.plan(2)
 
-  broken(rejected, function(error, value) {
-    assert.ok(error && !value, 'rejected')
+  resolve(rejected, function (error, value) {
+    t.ok(error && !value, 'rejected')
   })
 
-  broken(resolved, function(error, value) {
-    assert.ok(!error && value === 'done', 'resolved')
+  resolve(resolved, function (error, value) {
+    t.ok(!error && value === 'done', 'resolved')
   })
 }
