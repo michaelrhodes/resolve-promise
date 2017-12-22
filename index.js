@@ -3,6 +3,8 @@ var slice = Array.prototype.slice
 module.exports = resolve
 
 function resolve (val, cb) {
+  var ctx = this
+
   return typeof val.then == 'function' ?
     promise(val) :
     wrapped
@@ -15,7 +17,7 @@ function resolve (val, cb) {
       (xargs = slice.call(args, 0, -1), cb = args[last]) :
       (xargs = args)
 
-    resolve(val.apply(null, xargs))
+    promise(val.apply(ctx, xargs))
   }
 
   function promise (val) {
