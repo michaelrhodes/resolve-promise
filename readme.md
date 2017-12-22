@@ -6,7 +6,7 @@ resolve promises with plain old callbacks
 ## install
 
 ```sh
-npm install michaelrhodes/resolve-promise#1.1.1
+npm install michaelrhodes/resolve-promise#1.1.2
 ```
 
 ## use
